@@ -93,17 +93,27 @@ sub convert_tracks {
 	my ( $album, $yaml_file, $config, $dbh ) = @_;
 	my $media_path = dir( $album->{'path'}, "audio" );
 	my @tracks     = get_sorted_tracks($album);
+<<<<<<< HEAD
 	
 	$media_path->mkpath();
 	if ( $config->{'audio_format'} eq 'ogg' ) {
 		my $ogg_channels = $config->{'ogg_channels'};	# default: 1
 		my $ogg_frequency = $config->{'ogg_frequency'}; # default: 22050
+=======
+
+	$media_path->mkpath();
+	if ( $config->{'audio_format'} eq 'ogg' ) {
+>>>>>>> 8a3c369312dc4637b1519cf32f6c0df49a4c89e1
 		my $ff_command = get_executable_path('ffmpeg');
 		foreach my $i ( 0 .. $#tracks ) {
 			my $source_file =
 				file( $album->{'path'}, $album->{ $tracks[$i] }->{'filename'} );
 			my $target_file = file( $media_path, "track_$i.ogg" );
+<<<<<<< HEAD
 			`$ff_command -i "$source_file" -ar $ogg_frequency -ac $ogg_channels "$target_file"`;
+=======
+			`$ff_command -i '$source_file' -ar 22050 -ac 1 '$target_file'`;
+>>>>>>> 8a3c369312dc4637b1519cf32f6c0df49a4c89e1
 		}
 	} else {
 		foreach my $i ( 0 .. $#tracks ) {
