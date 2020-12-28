@@ -6,11 +6,9 @@ var updateConfig = function(caller)\{
 					  'port' : $('#port').val(),
 					  'open_browser' : testCheckBox('#open_browser'),
 					  'audio_format' : $('#audio_format').val(),
-<<<<<<< HEAD
 					  'ogg_channels' : $('#ogg_channels').val(),
 					  'ogg_frequency' : $('#ogg_frequency').val(),
-=======
->>>>>>> 8a3c369312dc4637b1519cf32f6c0df49a4c89e1
+					  'ffmpeg_parameters' : $('#ffmpeg_parameters').val(),
 					  'pen_language' : $('#pen_language').val(),
 					  'library_path' : $('#library_path').val()
 					  \};
@@ -30,11 +28,9 @@ var updateConfig = function(caller)\{
 
 $(function()\{
     $('#audio_format').val("{ $audio_format }");
-<<<<<<< HEAD
 	$('#ogg_channels').val("{ $ogg_channels }");
 	$('#ogg_frequency').val("{ $ogg_frequency }");
-=======
->>>>>>> 8a3c369312dc4637b1519cf32f6c0df49a4c89e1
+	$('#ffmpeg_parameters').val("{ $ffmpeg_parameters }");
     $('#pen_language').val("{ $pen_language }");
 	$('[data-toggle="tooltip"]').tooltip();
 	$('#submit').click(function()\{
@@ -67,19 +63,33 @@ $(function()\{
 			<select type="text" id="audio_format"
 				class="custom-select form-control" data-toggle="tooltip"
 				title="Set this either to mp3 (high quality for headphones, large files) or ogg (low quality for speaker, small files).">
-				<option value="mp3">mp3</option>
-				<option value="ogg">ogg</option>
+				<option value="mp3">.mp3</option>
+				<option value="ogg">.ogg</option>
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="host">.ogg channels</label> <input type="text" id="host"
-				class="form-control" value="{ $ogg_channels }" data-toggle="tooltip"
+			<label for="ogg_channels">.ogg Channels</label> 
+			<select type="text" id="ogg_channels"
+				class="custom-select form-control" data-toggle="tooltip"
 				title="Ogg Vorbis Audio Channels">
+				<option value="1">Mono</option>
+				<option value="2">Stereo</option>
+			</select>
 		</div>
 		<div class="form-group">
-			<label for="host">.ogg frequency</label> <input type="text" id="host"
-				class="form-control" value="{ $ogg_frequency }" data-toggle="tooltip"
-				title="Ogg Vorbis Audio Channels">
+			<label for="ogg_frequency">.ogg Frequency</label> 
+			<select type="text" id="ogg_frequency"
+				class="custom-select form-control" data-toggle="tooltip"
+				title="Ogg Vorbis Frequency">
+				<option value="22050">22050</option>
+				<option value="44100">44100</option>
+				<option value="48000">48000</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="ffmpeg_parameters">custom ffmpeg parameters</label> <input type="text" id="ffmpeg_parameters"
+				class="form-control" value="{ $ffmpeg_parameters }" data-toggle="tooltip"
+				title="Extra ffmpeg Parameters">
 		</div>
 		<div class="form-group">
 			<label for="library_path">ttmp32gme library path:</label> <input type="text" id="library_path"

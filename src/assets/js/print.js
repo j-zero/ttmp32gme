@@ -136,6 +136,7 @@ var saveConfig = function($id) {
 					fillInElement($id, data.element);
 					notify($('#config-save'), '', jqXHR.statusText, 'bg-success',
 							2000);
+					//location.reload(); 
 				} else {
 					notify($('#config-save'), '', jqXHR.statusText, 'bg-danger',
 							4000);

@@ -98,12 +98,16 @@ sub convert_tracks {
 	if ( $config->{'audio_format'} eq 'ogg' ) {
 		my $ogg_channels = $config->{'ogg_channels'};	# default: 1
 		my $ogg_frequency = $config->{'ogg_frequency'}; # default: 22050
+		my $ffmpeg_parameters = $config->{'ffmpeg_parameters'}; # default: " "
 		my $ff_command = get_executable_path('ffmpeg');
 		foreach my $i ( 0 .. $#tracks ) {
 			my $source_file =
 				file( $album->{'path'}, $album->{ $tracks[$i] }->{'filename'} );
 			my $target_file = file( $media_path, "track_$i.ogg" );
-			`$ff_command -i "$source_file" -ar $ogg_frequency -ac $ogg_channels "$target_file"`;
+			my $command = "$ff_command -i \"$source_file\" -ar $ogg_frequency -ac $ogg_channels $ffmpeg_parameters \"$target_file\"";
+
+			print "[MSG] Running command:\n$command\n\n";
+			`$command`;
 		}
 	} else {
 		foreach my $i ( 0 .. $#tracks ) {

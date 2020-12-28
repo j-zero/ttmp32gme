@@ -27,6 +27,12 @@ UPDATE "config" SET value='0.3.1' WHERE param='version';
 DELETE FROM "config" WHERE param='player_mode';
 ALTER TABLE "gme_library" ADD COLUMN "player_mode" TEXT DEFAULT 'music';
 END
+	'0.4.0' => <<'END',
+UPDATE "config" SET value='0.4.0' WHERE param='version';
+INSERT INTO "config" ("param", "value") VALUES ('ogg_channels', '1');
+INSERT INTO "config" ("param", "value") VALUES ('ogg_frequency', '22050');
+INSERT INTO "config" ("param", "value") VALUES ('ffmpeg_parameters', '');
+END
 };
 
 sub update {

@@ -51,7 +51,7 @@ $debug = 0;
 	my $configfile = "";
 	my $versionFlag;
 
-	my $version = Perl::Version->new("0.3.3");
+	my $version = Perl::Version->new("0.4.0");
 
 	# Command line startup options
 	# Usage: ttmp32gme(.exe) [-d|--directory=dir] [-h|--host=host#] [-p|--port=port#] [-c|--configdir=dir] [-v|--version]
@@ -460,6 +460,7 @@ $httpd->reg_cb(
 					'audio_format' => $config{'audio_format'},
 					'ogg_channels' => $config{'ogg_channels'},
 					'ogg_frequency' => $config{'ogg_frequency'},
+					'ffmpeg_parameters' => $config{'ffmpeg_parameters'},
 					'pen_language' => $config{'pen_language'},
 					'library_path' => $config{'library_path'}
 				}
