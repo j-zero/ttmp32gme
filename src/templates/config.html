@@ -6,6 +6,8 @@ var updateConfig = function(caller)\{
 					  'port' : $('#port').val(),
 					  'open_browser' : testCheckBox('#open_browser'),
 					  'audio_format' : $('#audio_format').val(),
+					  'ogg_channels' : $('#ogg_channels').val(),
+					  'ogg_frequency' : $('#ogg_frequency').val(),
 					  'pen_language' : $('#pen_language').val(),
 					  'library_path' : $('#library_path').val()
 					  \};
@@ -25,6 +27,8 @@ var updateConfig = function(caller)\{
 
 $(function()\{
     $('#audio_format').val("{ $audio_format }");
+	$('#ogg_channels').val("{ $ogg_channels }");
+	$('#ogg_frequency').val("{ $ogg_frequency }");
     $('#pen_language').val("{ $pen_language }");
 	$('[data-toggle="tooltip"]').tooltip();
 	$('#submit').click(function()\{
@@ -60,6 +64,16 @@ $(function()\{
 				<option value="mp3">mp3</option>
 				<option value="ogg">ogg</option>
 			</select>
+		</div>
+		<div class="form-group">
+			<label for="host">.ogg channels</label> <input type="text" id="host"
+				class="form-control" value="{ $ogg_channels }" data-toggle="tooltip"
+				title="Ogg Vorbis Audio Channels">
+		</div>
+		<div class="form-group">
+			<label for="host">.ogg frequency</label> <input type="text" id="host"
+				class="form-control" value="{ $ogg_frequency }" data-toggle="tooltip"
+				title="Ogg Vorbis Audio Channels">
 		</div>
 		<div class="form-group">
 			<label for="library_path">ttmp32gme library path:</label> <input type="text" id="library_path"
