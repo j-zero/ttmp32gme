@@ -458,11 +458,8 @@ $httpd->reg_cb(
 					? 'checked="checked"'
 					: '',
 					'audio_format' => $config{'audio_format'},
-<<<<<<< HEAD
 					'ogg_channels' => $config{'ogg_channels'},
 					'ogg_frequency' => $config{'ogg_frequency'},
-=======
->>>>>>> 8a3c369312dc4637b1519cf32f6c0df49a4c89e1
 					'pen_language' => $config{'pen_language'},
 					'library_path' => $config{'library_path'}
 				}
